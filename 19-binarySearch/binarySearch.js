@@ -4,7 +4,25 @@ class MySolution {
   }
 
   binarySearch(nums, target) {
-    // Insert code here;
+    if(nums.length > 1) {
+        let mid = Math.floor(nums.length/2);
+        if(nums[mid] > target) {
+            //make sublist for lower end of array
+            let sublist = nums.slice(0, mid);
+            return this.binarySearch(sublist, target);
+        } else if (nums[mid] < target) {
+            //make sublist for upper end of array
+            let sublist = nums.slice(mid + 1, nums.length);
+            return this.binarySearch(sublist, target);
+        } else if (nums.length == target) {
+            //value in sublist matches target
+            return true;
+        } else
+            return false;
+    } else if(nums[0] == target) 
+        return true;
+    else
+        return false;
   }
 }
 
