@@ -14,8 +14,7 @@ class MySolution {
             //make sublist for upper end of array
             let sublist = nums.slice(mid + 1, nums.length);
             return this.binarySearch(sublist, target);
-        } else if (nums.length == target) {
-            //value in sublist matches target
+        } else if (nums[mid] == target) {
             return true;
         } else
             return false;
